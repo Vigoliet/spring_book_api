@@ -42,6 +42,8 @@ public class BookController {
                 .map(book -> {
                     book.setTitle(bookDetails.getTitle());
                     book.setAuthor(bookDetails.getAuthor());
+                    book.setDescription(bookDetails.getDescription());
+                    book.setCompleted(bookDetails.getCompleted());
                     return ResponseEntity.ok(bookRepository.save(book));
                 })
                 .orElseGet(() -> ResponseEntity.notFound().build());

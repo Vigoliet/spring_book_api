@@ -14,6 +14,19 @@ public class Book {
     private Long id;
     private String title;
     private String author;
+    private String description;
+    private Boolean completed;
+
+    public Book() {
+    }
+
+    public Book(Long id, String title, String author, String description, Boolean completed) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.description = description;
+        this.completed = completed;
+    }
 
     public Long getId() {
         return id;
@@ -37,5 +50,21 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Boolean getCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(Boolean completed) {
+        this.completed = completed;
     }
 }
