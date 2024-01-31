@@ -1,0 +1,32 @@
+version: '3,8' # version av docker-compose
+
+services:
+  app:
+    build: .
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    networks:
+      - mynetwork
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - mynetwork
+
+volumes:
+  db-data:
+
+networks:
+  mynetwork:
+    driver: bridge
+
